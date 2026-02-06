@@ -289,7 +289,71 @@ function drawLives() {
 }
 
 function gameOver() {
-    document.getElementById("myArkanoidGameOver").style.display = "block";
+    drawGameOverScreen();
+}
+
+function drawGameOverScreen() {
+    // Limpiar canvas
+    ctx.clearRect(0, 0, c.width, c.height);
+    
+    // Fondo oscuro con gradiente
+    var bgGradient = ctx.createRadialGradient(c.width/2, c.height/2, 50, c.width/2, c.height/2, 300);
+    bgGradient.addColorStop(0, '#1a2a3a');
+    bgGradient.addColorStop(1, '#000000');
+    ctx.fillStyle = bgGradient;
+    ctx.fillRect(0, 0, c.width, c.height);
+    
+    // Efecto de brillo para el texto
+    ctx.shadowBlur = 30;
+    ctx.shadowColor = '#00d4ff';
+    
+    // GAME OVER
+    ctx.font = 'bold 72px monospace';
+    ctx.fillStyle = '#ffffff';
+    ctx.textAlign = 'center';
+    ctx.fillText('GAME OVER', c.width/2, 140);
+    
+    // Pregunta
+    ctx.shadowBlur = 15;
+    ctx.font = 'bold 24px Arial';
+    ctx.fillStyle = '#aaddff';
+    ctx.fillText('¿Quieres seguir jugando?', c.width/2, 220);
+    
+    // Botón SÍ
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = '#00ff88';
+    ctx.font = 'bold 36px Arial';
+    ctx.fillStyle = '#00ff88';
+    ctx.fillText('▶ SÍ', 200, 300);
+    
+    // Botón NO
+    ctx.shadowColor = '#ff4444';
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText('NO', 360, 300);
+    
+    ctx.shadowBlur = 0;
+    
+    // Detectar click
+    c.onclick = function(e) {
+        var rect = c.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        
+        // Área del SÍ (aproximada)
+        if (x > 150 && x < 250 && y > 270 && y < 310) {
+            document.location.reload();
+        }
+        // Área del NO
+        if (x > 310 && x < 410 && y > 270 && y < 310) {
+            // Cerrar o ir a otra página
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, c.width, c.height);
+            ctx.font = 'bold 48px Arial';
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.fillText('¡Gracias por jugar!', c.width/2, c.height/2);
+        }
+    };
 }
 
 function victory() {
@@ -359,11 +423,7 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
-// Eventos de reinicio
-document.getElementById("myArkanoidGameOver").addEventListener("click", function(){
-    document.location.reload();
-});
-
+// Evento de victoria
 document.getElementById("victoryScreen").addEventListener("click", function(){
     document.location.reload();
 });

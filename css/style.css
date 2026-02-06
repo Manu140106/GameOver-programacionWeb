@@ -33,30 +33,10 @@ h1 {
     display: block;
     background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1e 100%);
     border-radius: 15px;
+    cursor: crosshair;
 }
 
-#myArkanoidGameOver {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 560px;
-    height: 400px;
-    background-image: url("../image/gameOver.png");
-    background-size: cover;
-    background-position: center;
-    background-color: rgba(0, 0, 0, 0.95);
-    cursor: pointer;
-    display: none;
-    z-index: 10;
-    border-radius: 15px;
-    transition: opacity 0.3s ease;
-}
-
-#myArkanoidGameOver:hover {
-    opacity: 0.9;
-}
-
-/*Pantalla de victoria */
+/* Pantalla de victoria */
 #victoryScreen {
     position: absolute;
     top: 0;
