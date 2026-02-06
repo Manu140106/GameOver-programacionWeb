@@ -1,4 +1,4 @@
-var c = document.getElementById(myArkanoid);
+var c = document.getElementById("myArkanoid");
 var ctx = c.getContext("2d");
 
 var radius = 10;
