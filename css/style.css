@@ -14,15 +14,18 @@ h1{
 }
 
 #myArkanoidGameOver{
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
     background-image: url("../image/gameOver.png");
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.9);
     cursor: pointer;
     display:none;
-    z-index: 2;
+    z-index: 9999;
 }
