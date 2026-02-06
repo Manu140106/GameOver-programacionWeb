@@ -1,17 +1,25 @@
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Arkanoid</title>
+        <title>🎮 Arkanoid Mejorado</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <h1>Hola Mundo!</h1>
-
-        <canvas id="myArkanoid" width="560" height="400" style="border: 1px solid black;"></canvas>
-        <canvas id="myArkanoidGameOver" width="560" height="400" style="border: 1px solid black;"></canvas>
-        <script src="js/script.js"></script>
+        <h1> ARKANOID </h1>
+        <div class="gameInfo">Usa las flechas ← → o el mouse para mover la paleta</div>
     
+        <div id="gameContainer">
+            <canvas id="myArkanoid" width="560" height="400"></canvas>
+            <canvas id="myArkanoidGameOver" width="560" height="400"></canvas>
+            <div id="victoryScreen">
+                <h2> ¡VICTORIA! </h2>
+                <p id="finalScore">Score: 0</p>
+                <p style="font-size: 18px;">Click para jugar de nuevo</p>
+            </div>
+        </div>
+    
+        <script src="js/script.js"></script>
     </body>    
     </html>
