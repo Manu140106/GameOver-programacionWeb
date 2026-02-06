@@ -199,3 +199,8 @@ function draw() {
 
 // ahora
 draw();
+
+// Evento click para reiniciar el juego
+document.getElementById("myArkanoidGameOver").addEventListener("click", function(){
+    document.location.reload();
+});

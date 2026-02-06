@@ -20,7 +20,7 @@ h1{
     left: 0;
     right: 0;
     margin: auto;
-    background-image: url ("../images/gameOver.png");
+    background-image: url("../image/gameOver.png");
     background-size: cover;
     cursor: pointer;
     display:none;
